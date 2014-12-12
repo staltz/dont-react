@@ -1,5 +1,5 @@
-Model-View-Intent and the Virtual DOM
+Don’t React
 =====================================
 
-[Click here](http://staltz.com/mvi-freaklies) to view the presentation.
+[Don’t click here](http://staltz.com/dont-react) to view the presentation.
 
