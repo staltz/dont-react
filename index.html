@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Don't React - webbisauna 14</title>
+    <meta name="description" content="Don't React">
+    <meta name="author" content="andrestaltz">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/futurice.css" id="theme">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section data-background="img/bg01.png" class="futurice-front1">
+          <img class="futulogo" src="img/futulogo.png">
+          <h2>Don't <img style="position:relative;top:2.5rem;" src="img/reactlogo.png" width="300"></h2>
+          <p>Andre Medeiros</p>
+          <p>@andrestaltz</p>
+        </section>
+
+        <section data-background="img/bg04.png" class="futurice-front1">
+          <h2>Why this presentation?</h2>
+          <ul>
+            <li>There is a reason why some technologies dies</li>
+            <li>Grunt, anyone?</li>
+            <div class="fragment">
+              <li>Don't believe the hype, community, or companies</li>
+              <li>Believe in the Science</li>
+            </div>
+          </ul>
+          <div class="fragment">
+              <h3>How could React be better?</h3>
+          </div>
+          <span class="fragment" style="background: rgb(255,240,70);color: rgb(33,15,0);padding: 0.2em 0.2em 0;line-height: 1em;vertical-align: initial;display: inline-block;position: absolute;left: 9rem;bottom: 5rem;font-size: 2em;transform: rotate(-15deg);">`virtual-dom`</span>
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1">
+          <h3>Pioneers make mistakes</h3>
+          <ul>
+            <li>Highly unlikely that the Virtual DOM pioneer is perfect</li>
+            <li>Underscore => Lodash</li>
+            <li class="fragment">React authors do not seem<br />to understand Reactive Programming<br /><br />
+              <ul>
+                <li>"Reactive Data Flow" => WRONG</li>
+                <li>"Reactive state" => WRONG</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section data-background="img/clouds.jpg" class="futurice-front1">
+          <h3>What is Reactive?</h3>
+          <br />
+          <h3>Reactive Programming is an Enlightened Path to Programming Utopia Yet to be Grokked By Mere Humans</h3>
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1" style="text-align:center;" data-transition="none">
+          <h4>Inter-module communication</h4>
+          <img src="img/modules1.png" width="600">
+          <span style="background: rgb(255,240,70);color: rgb(33,15,0);padding: 0.2em 0.2em 0; visibility:hidden;line-height: 1em;vertical-align: initial;display: inline-block;position: absolute;left: 9rem;top: 10rem;font-size: 1.2em;transform: rotate(-22deg);">nothing</span>
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1" style="text-align:center;" data-transition="none">
+          <h4>X defines which other components does X affect</h4>
+          <img src="img/modules2.png" width="600">
+          <span class="fragment" style="background: rgb(255,240,70);color: rgb(33,15,0);padding: 0.2em 0.2em 0;line-height: 1em;vertical-align: initial;display: inline-block;position: absolute;left: 9rem;top: 10rem;font-size: 2em;transform: rotate(-22deg);">Interactive</span>
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1" style="text-align:center;" data-transition="none">
+          <h4>X defines which other components affect X</h4>
+          <img src="img/modules3.png" width="600">
+          <span class="fragment" style="background: rgb(255,240,70);color: rgb(33,15,0);padding: 0.2em 0.2em 0;line-height: 1em;vertical-align: initial;display: inline-block;position: absolute;left: 9rem;top: 10rem;font-size: 2em;transform: rotate(-22deg);">Reactive</span>
+        </section>
+
+        <section data-background="img/bg08.png" class="futurice-front1">
+          <h3 style="color:white">Roles in Interactive Programming</h3>
+          <ul style="color:white">
+            <li>Passive: exposes functions so other can change it</li>
+            <li>Proactive: changes and forces passive modules</li>
+          </ul>
+          <h3 style="color:white" class="fragment">Passive is BAD</h3>
+        </section>
+
+        <section data-background="img/bg08.png" class="futurice-front1">
+          <pre style="font-size:1.5rem;"><code data-trim>
+// speaker.js
+
+getEndOfSpeachPromise()
+  .then(function () {
+    participants.forEach(function (participant) {
+      participant.goGetBeer();
+    });
+  });
+          </code></pre>
+        </section>
+
+        <section data-background="img/bg06.png" class="futurice-front1">
+          <h3 style="color:white">Roles in Reactive Programming</h3>
+          <ul style="color:white">
+            <li>Reactive: listens to events, and exposes events that can listened by others</li>
+            <br />
+            <li>"I am in full control over myself."</li>
+          </ul>
+        </section>
+
+        <section data-background="img/bg06.png" class="futurice-front1">
+          <pre style="font-size:1.5rem;"><code data-trim>
+// participant1.js
+
+speaker.endOfSpeachEvents.subscribe(function () {
+  goGetBeer();
+});
+
+// participant2.js
+
+speaker.endOfSpeachEvents.subscribe(function () {
+  tweet('Pretty decent presentation.');
+});
+          </code></pre>
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1">
+          <h2>What is React?</h2>
+          <ul>
+            <li>Virtual DOM Rendering</li>
+            <li>Reusable hierarchical components</li>
+            <li>Hides Virtual DOM data structure from the programming</li>
+            <li>Mostly Passive API</li>
+            <li>Not a framework, an opinionated building block</li>
+          </ul>
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1">
+          <pre style="font-size:1.2rem"><code data-trim class="language-jsx" style="max-height:100rem">
+// Timer is PROACTIVE
+var Timer = React.createClass({
+  getInitialState: function() {
+    return {secondsElapsed: 0};
+  },
+  tick: function() {
+    // State is PASSIVE
+    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 1000);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
+  render: function() { // Rendering is REACTIVE
+    return (
+      &lt;div&gt;Seconds Elapsed: {this.state.secondsElapsed}&lt;/div&gt;
+    );
+  }
+});
+
+React.render(&lt;Timer /&gt;, mountNode);
+          </code></pre>
+        </section>
+
+        <section data-background="img/bg04.png" class="futurice-front1">
+          <h2>React virtual elements are not observable</h2>
+          <ul>
+            <li class="fragment">Testing worse, through the DOM</li>
+            <li class="fragment">Cannot have post processing steps<br />
+              <ul><li>E.g. replace every 'foo' with 'bar'</li></ul>
+            </li>
+            <br />
+            <li class="fragment">Cannot delay rendering after state/props change</li>
+            <li class="fragment">Cannot reactively compose components</li>
+          </ul>
+        </section>
+
+        <section data-background="img/bg03.png" class="futurice-front1" style="color:white">
+          <h2 style="color:white">How could it be better?</h2>
+          <ul>
+            <li class="fragment">Virtual DOM elements as first class data structures</li>
+            <li class="fragment">Reactive-friendly</li>
+            <li class="fragment">Less magic</li>
+          </ul>
+        </section>
+
+        <section data-background="img/bg04.png" class="futurice-front1">
+          <h3>What is virtual-dom?</h3>
+          <ul>
+            <li><a href="https://github.com/Matt-Esch/virtual-dom">https://github.com/Matt-Esch/virtual-dom</a></li>
+            <li>A library competing with React</li>
+            <li>Data structures for Virtual DOM elements</li>
+            <li>Diff &amp; patch algorithms</li>
+            <li>Non-opinionated building block</li>
+          </ul>
+        </section>
+
+        <section data-background="img/bg04.png" class="futurice-front1">
+          <h3>What is Cycle.js?</h3>
+          <ul>
+            <li><a href="https://github.com/staltz/cycle">https://github.com/staltz/cycle</a></li>
+            <li>My on-going attempt</li>
+            <li>A Reactive Virtual DOM frontend framework</li>
+            <li>Built on virtual-dom and RxJS</li>
+            <li>View separated from Rendering</li>
+            <li>Functional Data flow nodes</li>
+          </ul>
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1" style="text-align:center;">
+          <img src="img/mvir.svg" width="600">
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1" style="text-align:center;">
+          <pre style="font-size:1rem"><code data-trim class="language-jsx" style="max-height:100rem">
+var HelloModel = Cycle.createModel(['changeName$'], function (intent) {
+  return {name$: intent.changeName$.startWith('')};
+});
+
+var HelloView = Cycle.createView(['name$'], function (model) {
+  return {
+    vtree$: model.name$
+      .map(function (name) {
+        return Cycle.h('div', {}, [
+          Cycle.h('label', 'Name:'),
+          Cycle.h('input', {
+            'attributes': {'type': 'text'},
+            'ev-input': 'inputText$'
+          }),
+          Cycle.h('hr'),
+          Cycle.h('h1', 'Hello ' + name)
+        ]);
+      }),
+    events: ['inputText$']
+  };
+});
+
+var HelloIntent = Cycle.createIntent(['inputText$'], function (view) {
+  return {
+    changeName$: view.inputText$.map(function (ev) { return ev.target.value; })
+  };
+});
+
+Cycle.createRenderer('.js-container').inject(HelloView);
+Cycle.circularInject(HelloModel, HelloView, HelloIntent);
+          </code></pre>
+        </section>
+
+        <section data-background="img/bg02.png" class="futurice-front1" style="text-align:center;">
+          <img src="img/routing.svg" width="800">
+        </section>
+
+        <section data-background="img/bg08.png" class="futurice-front1">
+          <h3 style="color:white">Conclusion</h3>
+          <ul style="color:white">
+            <li>React sucks</li>
+            <li>Great ideas, bad API</li>
+            <li>React is not Reactive Programming</li>
+            <li>React is unsuitable for Reactive Programming</li>
+            <li>React could be better</li>
+          </ul>
+        </section>
+
+        <section data-background="img/bg06.png" class="futurice-front1">
+          <h2 style="color:white">Thanks!</h2>
+          <h2 style="color:white">Questions?</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'linear',
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
