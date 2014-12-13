@@ -242,14 +242,14 @@ var HelloView = Cycle.createView(['name$'], function (model) {
   return {
     vtree$: model.name$
       .map(function (name) {
-        return Cycle.h('div', {}, [
-          Cycle.h('label', 'Name:'),
-          Cycle.h('input', {
+        return h('div', {}, [
+          h('label', 'Name:'),
+          h('input', {
             'attributes': {'type': 'text'},
             'ev-input': 'inputText$'
           }),
-          Cycle.h('hr'),
-          Cycle.h('h1', 'Hello ' + name)
+          h('hr'),
+          h('h1', 'Hello ' + name)
         ]);
       }),
     events: ['inputText$']
