@@ -109,7 +109,7 @@
           <pre style="font-size:1.5rem;"><code data-trim>
 // speaker.js
 
-getEndOfSpeachPromise()
+getEndOfSpeechPromise()
   .then(function () {
     participants.forEach(function (participant) {
       participant.goGetBeer();
@@ -132,13 +132,13 @@ getEndOfSpeachPromise()
           <pre style="font-size:1.5rem;"><code data-trim>
 // participant1.js
 
-speaker.endOfSpeachEvents.subscribe(function () {
+speaker.endOfSpeechEvents.subscribe(function () {
   goGetBeer();
 });
 
 // participant2.js
 
-speaker.endOfSpeachEvents.subscribe(function () {
+speaker.endOfSpeechEvents.subscribe(function () {
   tweet('Pretty decent presentation.');
 });
           </code></pre>
